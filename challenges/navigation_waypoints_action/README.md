@@ -65,11 +65,16 @@ Below is the structure of the action interface:
 
 1. Create a workspace and clone the repository
    ```bash
-   cd ~/linorobot2  # navigate to linorobot2 directory
+   cd ~/linorobot2/  # navigate to linorobot2 directory
    git clone https://github.com/linorobot/academy.git 
-   cd ~/linorobot2/academy/challenges  # you can see the provided packages here
+   cd ~/linorobot2/academy/challenges/  # you can see the provided packages here
    ```
-
+   Then, move the world files into linorobot2_gazebo
+   ```bash
+   cd ~/linorobot2/academy/challenges/challenges_map/
+   mv challenge_map/ ~/linorobot2/linorobot2_gazebo/models/
+   mv challenge_map.sdf  ~/linorobot2/linorobot2_gazebo/worlds/
+   ```
 2. Make your modification
    ```bash
    cd ~/linorobot2/academy/challenges/navigation_waypoints_action/
@@ -77,7 +82,7 @@ Below is the structure of the action interface:
 
 4. Build and run (do it in your docker!)
    ```bash
-   cd ~/linorobot2
+   cd ~/linorobot2/
    colcon build
    source install/setup.bash
    # Run your tasks
