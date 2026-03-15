@@ -98,5 +98,50 @@ Below is the structure of the action interface:
 6. Once you are done with mapping, test running navigation in your new map, you should have equipped yourself with all the skills needed from the 'autonomous_navigation' exercise yesterday!
 
 7. The real challenge (Travelling Salesman Problem)
-cd ~/linorobot2/academy/challenges/navigation_waypoints_action
-Your new challenge starts there! Have fun!
+   ```bash
+   cd ~/linorobot2/academy/challenges/navigation_waypoints_action
+   ```
+   Your new challenge starts there! Have fun!
+
+---
+
+## 🏃 How to Run (Shortcut)
+
+For the final challenge, you can use the provided **Tmuxinator** profile to launch all necessary nodes at once (Simulation, Navigation, and your Action Server).
+
+### 1. Setup the Tmuxinator Profile
+Copy the `sim_waypoints.yml` file from the challenge folder to your local tmuxinator config directory:
+```bash
+cp ~/linorobot2/academy/challenges/sim_waypoints.yml ~/linorobot2/docker/profiles
+```
+
+### 2. Launch the Environment
+Run the following command to start the simulation and your server:
+```bash
+# Ensure you are in the docker directory where the setup script resides
+cd ~/linorobot2_ws/docker/
+source setup_tmux.bash
+tmuxinator start sim_waypoints
+```
+This will open a tmux session with:
+- **KasmVNC**: For visualizing the simulation.
+- **Gazebo**: The simulation environment.
+- **Nav2 Stack**: The navigation system.
+- **Your Action Server**: Automatically launched via `ros2 run navwaypoints_server ...`.
+
+### 3. Start the Challenge
+Once everything is running and you are ready to begin the run:
+```bash
+# In a new terminal pane or window inside the docker container:
+ros2 run navwaypoints_client navwaypoints_client
+```
+
+### 4. Retrieve Results (Post-Run)
+After the run is complete, retrieve your results for submission:
+```bash
+# Copy the results file from the container's temp directory
+cp /tmp/challenge_results/waypoint_results.pk ~/linorobot2_ws/src/linorobot2/
+
+# (Organisers only) Verify the results
+python3 print_results.py ~/linorobot2_ws/src/linorobot2/waypoint_results.pkl
+```
