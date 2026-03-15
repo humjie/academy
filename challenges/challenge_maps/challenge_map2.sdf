@@ -64,7 +64,7 @@
     </model>
 
     
-<model name="challenge_map_new">
+<model name="challenge_map2">
   <link name="link">
     <inertial>
       <mass>15</mass>
@@ -81,7 +81,7 @@
       <pose>0 0 0 0 0 0</pose>
       <geometry>
         <mesh>
-          <uri>model://challenge_map_new/meshes/challenge_map_new.stl</uri>
+          <uri>model://challenge_map2/meshes/challenge_map2.stl</uri>
         </mesh>
       </geometry>
     </collision>
@@ -89,7 +89,7 @@
       <pose>0 0 0 0 0 0</pose>
       <geometry>
         <mesh>
-          <uri>model://challenge_map_new/meshes/challenge_map_new.stl</uri>
+          <uri>model://challenge_map2/meshes/challenge_map2.stl</uri>
         </mesh>
       </geometry>
       <material>
