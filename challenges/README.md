@@ -66,24 +66,37 @@ Below is the structure of the action interface:
 1. Create a workspace and clone the repository
    ```bash
    cd ~/linorobot2/  # navigate to linorobot2 directory
-   git clone https://github.com/linorobot/academy.git 
+   git clone https://github.com/humjie/academy.git
+   git pull
+   git checkout bootcamp-challenge-rules
    cd ~/linorobot2/academy/challenges/  # you can see the provided packages here
    ```
    Then, move the world files into linorobot2_gazebo
    ```bash
-   cd ~/linorobot2/academy/challenges/challenges_map/
-   mv challenge_map/ ~/linorobot2/linorobot2_gazebo/models/
-   mv challenge_map.sdf  ~/linorobot2/linorobot2_gazebo/worlds/
-   ```
-2. Make your modification
-   ```bash
-   cd ~/linorobot2/academy/challenges/navigation_waypoints_action/
+   cd ~/linorobot2/academy/challenges/challenge_maps/
+   mv final_challenge_map/ ~/linorobot2/linorobot2_gazebo/models/
+   mv final_challenge_map.sdf  ~/linorobot2/linorobot2_gazebo/worlds/
    ```
 
-4. Build and run (do it in your docker!)
+3. Setup your tmux and docker
    ```bash
-   cd ~/linorobot2/
+   cd ~/linorobot2_ws/docker/
+   source setup_tmux.bash
+   tmuxinator start dev
+   ```
+
+4. In your docker, build and run
+   ```bash
+   cd ~/linorobot2_ws
    colcon build
    source install/setup.bash
    # Run your tasks
    ```
+
+5. If you see the challenge world in gazebo, you are ready and its time to map!
+
+6. Once you are done with mapping, test running navigation in your new map, you should have equipped yourself with all the skills needed from the 'autonomous_navigation' exercise yesterday!
+
+7. The real challenge (Travelling Salesman Problem)
+cd ~/linorobot2/academy/challenges/navigation_waypoints_action
+Your new challenge starts there! Have fun!
